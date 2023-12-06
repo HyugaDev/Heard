@@ -18,8 +18,7 @@ export const getAllTransactions = () => (dispatch) => {
   getAllTransactionsApi()
   .then((response) => {
     if (response.status === SUCCESSFUL) {
-      console.log(response)
-      dispatch(success(response.data))
+      dispatch(success(response.data.transactions))
     } else {
       dispatch(failure(response));
     }
