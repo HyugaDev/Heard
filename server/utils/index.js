@@ -1,8 +1,12 @@
 module.exports = (schema) => {
-  return (req, res, next, schema) => {
-    const { error, value } = schema.validate(req.body);
+  return (req, res, next) => {
+    const { error } = schema.validate(req.body);
+
     if (error) {
-      res.send(error);
-    } else next();
+      const errorMessage = error.details[0].message.replace(/"/g, '');
+      res.status(400).json({ error: errorMessage });
+    } else {
+      next();
+    }
   };
 };
