@@ -75,10 +75,6 @@ async function deleteTransaction(req, res) {
 }
 
 module.exports = {
-  deleteTransaction,
-};
-
-module.exports = {
   getTransactions,
   addTransaction,
   updateTransaction,

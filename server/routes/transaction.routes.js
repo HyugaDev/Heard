@@ -4,7 +4,6 @@ const asyncHandler = require('express-async-handler');
 const TransactionCtrl = require('../controllers/transaction.controller');
 const transactionSchema = require('../validators/transaction.validator');
 const schemaValidator = require('../utils');
-const Joi = require('joi');
 
 router.get('/', asyncHandler(TransactionCtrl.getTransactions));
 
