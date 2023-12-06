@@ -1,6 +1,6 @@
 import { Provider } from 'react-redux';
 import Home from './Transactions';
-import store from './store/store';
+import store from './store';
 
 function App() {
   return (
