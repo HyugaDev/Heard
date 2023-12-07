@@ -8,15 +8,25 @@ import {
   TableHead 
 } from '@mui/material';
 import { transactionStyles } from "./TransactionStyles";
+import { useDispatch } from "react-redux";
+import { deleteTransaction } from "../../store/actions/deleteTransaction";
+import { getAllTransactions } from "../../store/actions/getAllTransactions";
 
-const TransactionsTable = ({transactions}) => {
+const TransactionsTable = ({transactions, handleEditClick}) => {
+
   const classes = transactionStyles();
+  const dispatch = useDispatch();
+
+  const handleDeleteTransaction = (transactionId) => {
+    dispatch(deleteTransaction(transactionId));
+    dispatch(getAllTransactions());
+  }
 
   return (
     <Table>
       <TableHead>
         <TableRow>
-          {/* <TableCell>TITLE</TableCell> */}
+          <TableCell align="center">TITLE</TableCell>
           <TableCell align="center">DESCRIPTION</TableCell>
           <TableCell align="center">AMOUNT</TableCell>
           <TableCell align="center">TO ACCOUNT</TableCell>
@@ -27,9 +37,9 @@ const TransactionsTable = ({transactions}) => {
       </TableHead>
 
       <TableBody>
-        {transactions.map((transaction) => (
+        {transactions?.map((transaction) => (
           <TableRow key={transaction.transactionId}>
-            {/* <TableCell align="center">{transaction.transactionId}</TableCell> */}
+            <TableCell align="center">{transaction.title}</TableCell>
             <TableCell align="center">{transaction.description}</TableCell>
             <TableCell align="center">{transaction.amount}</TableCell>
             <TableCell align="center">{transaction.toAccount}</TableCell>
@@ -40,14 +50,14 @@ const TransactionsTable = ({transactions}) => {
                 variant="contained"
                 className={classes.editButton}
                 color="primary"
-                // Add onClick handler for edit
+                onClick={() => handleEditClick(transaction)}
               >
                 Edit
               </Button>
               <Button
                 variant="contained"
                 className={classes.removeButton}
-                // Add onClick handler for delete
+                onClick={() => handleDeleteTransaction(transaction.transactionId)}
               >
                 Remove
               </Button>

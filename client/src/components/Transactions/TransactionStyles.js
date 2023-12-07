@@ -7,7 +7,7 @@ export const transactionStyles = makeStyles((theme) =>
       padding: "10px",
     },
     transactionList: {
-      width: "70% !important",
+      width: "80% !important",
       margin: "0 auto",
     },
     editButton: {
@@ -16,11 +16,18 @@ export const transactionStyles = makeStyles((theme) =>
     removeButton: {
       backgroundColor: "#d84444 !important",
     },
-    addButton: {
+    greyButton: {
       float: "right",
       backgroundColor: "#d3d3d3 !important",
       color: "black !important",
       fontWeight: "700 !important",
+    },
+    closeButton: {
+      cursor: 'pointer', 
+      background: 'none', 
+      border: 'none', 
+      fontSize: 24, 
+      color: 'gray' 
     }
   })
 );

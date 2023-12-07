@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { transactionStyles } from "./TransactionStyles";
 import TransactionsList from "./List";
-import { getAllTransactions } from "../store/actions/getAllTransactions";
+import { getAllTransactions } from "../../store/actions/getAllTransactions";
 import { useDispatch, useSelector } from "react-redux";
-import { Button } from "@mui/material";
 
 const Transactions = () => {
   const classes = transactionStyles();
@@ -12,7 +11,7 @@ const Transactions = () => {
 
   useEffect(() => {
     dispatch(getAllTransactions());
-  }, []);
+  }, [transactions]);
 
   return (
     <>

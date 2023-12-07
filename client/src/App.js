@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import Home from './Transactions';
+import Home from './components/Transactions';
 import store from './store';
 
 function App() {

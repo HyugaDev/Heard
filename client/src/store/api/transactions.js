@@ -11,5 +11,5 @@ export const createTransactionApi = (data) => {
 };
 
 export const deleteTransactionApi = (transactionId) => {
-  return Delete(`${process.env.REACT_APP_BASE_URL}/api/v1/transactions/${transactionId}`);
+  return Delete(`${process.env.REACT_APP_BASE_URL}/api/transactions/${transactionId}`);
 };
