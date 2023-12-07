@@ -1,10 +1,11 @@
 const Joi = require('joi');
 
 const transactionSchema = Joi.object({
-  amount: Joi.number().integer().min(1),
-  description: Joi.string().min(4).max(75),
-  fromAccount: Joi.string(),
-  toAccount: Joi.string(),
+  title: Joi.string().required(),
+  amount: Joi.number().integer().min(1).required(),
+  description: Joi.string().required(),
+  fromAccount: Joi.string().required(),
+  toAccount: Joi.string().required(),
 }).custom((value, helpers) => {
   const { fromAccount, toAccount } = value;
 
