@@ -2,5 +2,9 @@
   "name": "heard",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start-server": "cd server && nodemon index.js",
+    "start-client": "cd client && npm start"
+  }
 }
