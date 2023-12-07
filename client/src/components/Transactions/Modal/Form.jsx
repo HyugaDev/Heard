@@ -47,7 +47,7 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
     initialValues: {
       title: "",
       description: "",
-      amount: 0,
+      amount: "",
       toAccount: "",
       fromAccount: "",
     },
@@ -82,7 +82,7 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
           p: 2 
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 16 }}>
+        <div className={classes.crossButton}>
           <button 
             onClick={handleClose} 
             className={classes.closeButton}
@@ -107,7 +107,6 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
             minRows={3}
             style={{
               width: '100%',
-              resize: 'none',
               marginBottom: 16,
               ...(formik.touched.description && formik.errors.description && { border: '1px solid red' }),
             }}

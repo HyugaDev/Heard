@@ -28,6 +28,16 @@ export const transactionStyles = makeStyles((theme) =>
       border: 'none', 
       fontSize: 24, 
       color: 'gray' 
+    },
+    buttons: {
+      display: "flex",
+      justifyContent: "space-around",
+      marginTop: "20px",
+    },
+    crossButton: {
+      display: 'flex', 
+      justifyContent: 'flex-end', 
+      marginBottom: 16
     }
   })
 );
