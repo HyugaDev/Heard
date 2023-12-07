@@ -21,7 +21,6 @@ const TransactionsTable = ({transactions, handleEditClick}) => {
 
   const handleDeleteTransaction = (transactionId) => {
     dispatch(deleteTransaction(transactionId));
-    dispatch(getAllTransactions());
     setConfirmDeleteOpen(false);
   }
 

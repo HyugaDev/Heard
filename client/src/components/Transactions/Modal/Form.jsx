@@ -64,7 +64,6 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
         dispatch(editTransaction(selectedTransaction.transactionId, data));
       }
       else dispatch(createTransaction(values));
-      dispatch(getAllTransactions());
       handleClose();
     },
   });

@@ -4,6 +4,7 @@ import {
 } from "../constants/transactionConstants";
 import { SUCCESSFUL, CREATED } from "../constants/statusCodes";
 import { createTransactionApi } from "../api/transactions";
+import { getAllTransactions } from "./getAllTransactions";
 
 const success = (transaction) => ({
   type: CREATE_TRANSACTION_SUCCESS,
@@ -26,5 +27,7 @@ export const createTransaction = (body) => (dispatch) => {
     })
     .catch((err) => {
       dispatch(failure(err));
+    }).finally(() => {
+      dispatch(getAllTransactions())
     })
 };

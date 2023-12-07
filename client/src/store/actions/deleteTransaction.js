@@ -4,6 +4,7 @@ import {
 } from "../constants/transactionConstants";
 import { SUCCESSFUL } from "../constants/statusCodes";
 import { deleteTransactionApi } from "../api/transactions";
+import { getAllTransactions } from "./getAllTransactions";
 
 const success = (message) => ({
   type: DELETE_TRANSACTION_SUCCESS, message
@@ -25,5 +26,7 @@ export const deleteTransaction = (transactionId) => (dispatch) => {
   })
   .catch((err) => {
     dispatch(failure(err));
+  }).finally(() => {
+    dispatch(getAllTransactions())
   })
 };
