@@ -5,6 +5,7 @@ import {
 import { SUCCESSFUL } from "../constants/statusCodes";
 import { editTransactionApi } from "../api/transactions";
 import { getAllTransactions } from "./getAllTransactions";
+import { toast } from 'react-toastify';
 
 const success = (transaction) => ({
   type: EDIT_TRANSACTION_SUCCESS,
@@ -20,9 +21,10 @@ export const editTransaction = (transactionId, body) => (dispatch) => {
   editTransactionApi(transactionId, body)
     .then((response) => {
       if (response.status === SUCCESSFUL) {
+        toast.success(`${response.data.message}`);
         dispatch(success(response.data.transaction));
       } else {
-        dispatch(failure(response));
+        dispatch(failure(response.data.error));
       }
     })
     .catch((err) => {

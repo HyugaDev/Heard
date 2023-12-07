@@ -5,7 +5,6 @@ import { Modal, Box, TextField, TextareaAutosize, Button } from "@mui/material";
 import { transactionStyles } from "../TransactionStyles";
 import { createTransaction } from "../../../store/actions/createTransaction";
 import { useDispatch } from "react-redux";
-import { getAllTransactions } from "../../../store/actions/getAllTransactions";
 import { editTransaction } from "../../../store/actions/editTransaction";
 
 const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
@@ -17,7 +16,11 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
     description: Yup.string().required("Description is required"),
     amount: Yup.number().required("Amount is required").positive("Amount must be positive"),
     toAccount: Yup.string().required("To Account is required"),
-    fromAccount: Yup.string().required("From Account is required"),
+    fromAccount: Yup.string().required("From Account is required")
+      .test('not-same-as-toAccount', 'From and To accounts cannot be the same', function (value) {
+        const { toAccount } = this.parent;
+        return value !== toAccount;
+      }),
   });
 
   useEffect(() => {
@@ -70,20 +73,20 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
 
   return (
     <Modal open={isOpen} onClose={handleCloseModal}>
-      <Box sx={{ 
-          position: "absolute", 
-          top: "50%", 
-          left: "50%", 
-          transform: "translate(-50%, -50%)", 
-          width: 400, 
-          bgcolor: "background.paper", 
-          boxShadow: 24,
-          p: 2 
-        }}
+      <Box sx={{
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: 400,
+        bgcolor: "background.paper",
+        boxShadow: 24,
+        p: 2
+      }}
       >
         <div className={classes.crossButton}>
-          <button 
-            onClick={handleClose} 
+          <button
+            onClick={handleClose}
             className={classes.closeButton}
           >
             &times;

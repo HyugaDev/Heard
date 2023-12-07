@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { transactionStyles } from "./TransactionStyles";
 import TransactionsList from "./List";
 import { getAllTransactions } from "../../store/actions/getAllTransactions";
@@ -18,7 +18,6 @@ const Transactions = () => {
       <h1 className={classes.heading}>Transaction List</h1>
       <TransactionsList transactions={transactions} />
     </>
-
   )
 }
 

@@ -1,9 +1,9 @@
 
 import { SUCCESSFUL } from "../constants/statusCodes";
 import { getAllTransactionsApi } from '../api/transactions';
-import { 
-  GET_ALL_TRANSACTIONS_FAILURE, 
-  GET_ALL_TRANSACTIONS_SUCCESS 
+import {
+  GET_ALL_TRANSACTIONS_FAILURE,
+  GET_ALL_TRANSACTIONS_SUCCESS
 } from "../constants/transactionConstants";
 
 const success = (transactions) => ({
