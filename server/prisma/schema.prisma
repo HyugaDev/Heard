@@ -9,6 +9,7 @@ datasource db {
 
 model Transaction {
   transactionId   String @id @unique @default(uuid())
+  title           String
   amount          Int
   description     String
   fromAccount     String
