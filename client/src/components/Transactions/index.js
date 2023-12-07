@@ -11,7 +11,7 @@ const Transactions = () => {
 
   useEffect(() => {
     dispatch(getAllTransactions());
-  }, [transactions]);
+  }, []);
 
   return (
     <>

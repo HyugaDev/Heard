@@ -72,12 +72,12 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
   return (
     <Modal open={isOpen} onClose={handleCloseModal}>
       <Box sx={{ 
-          position: 'absolute', 
-          top: '50%', 
-          left: '50%', 
-          transform: 'translate(-50%, -50%)', 
+          position: "absolute", 
+          top: "50%", 
+          left: "50%", 
+          transform: "translate(-50%, -50%)", 
           width: 400, 
-          bgcolor: 'background.paper', 
+          bgcolor: "background.paper", 
           boxShadow: 24,
           p: 2 
         }}
@@ -86,7 +86,6 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
           <button 
             onClick={handleClose} 
             className={classes.closeButton}
-            style={{ cursor: 'pointer', background: 'none', border: 'none', fontSize: 24, color: 'gray' }}
           >
             &times;
           </button>
@@ -106,7 +105,7 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
           <TextareaAutosize
             minRows={3}
             style={{
-              width: '100%',
+              width: "100%",
               marginBottom: 16,
               ...(formik.touched.description && formik.errors.description && { border: '1px solid red' }),
             }}
@@ -150,7 +149,7 @@ const TransactionForm = ({ isOpen, handleClose, selectedTransaction }) => {
             helperText={formik.touched.fromAccount && formik.errors.fromAccount}
             sx={{ mb: 2 }}
           />
-          <Box sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', mt: 2 }}>
+          <Box sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", mt: 2 }}>
             <Button variant="contained" onClick={handleClose} sx={{ mr: 2 }} className={classes.greyButton}>
               Close
             </Button>

@@ -21,8 +21,8 @@ const TransactionsTable = ({transactions, handleEditClick}) => {
 
   const handleDeleteTransaction = (transactionId) => {
     dispatch(deleteTransaction(transactionId));
-    setConfirmDeleteOpen(false);
     dispatch(getAllTransactions());
+    setConfirmDeleteOpen(false);
   }
 
   const handleConfirmDeleteModal = () => setConfirmDeleteOpen(true);
@@ -66,7 +66,6 @@ const TransactionsTable = ({transactions, handleEditClick}) => {
                   variant="contained"
                   className={classes.removeButton}
                   onClick={handleConfirmDeleteModal}
-                  // onClick={() => handleDeleteTransaction(transaction.transactionId)}
                 >
                   Remove
                 </Button>

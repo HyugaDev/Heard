@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from '@mui/material';
 import TransactionsTable from "./Table";
 import { transactionStyles } from "./TransactionStyles";
